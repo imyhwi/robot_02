@@ -1,0 +1,52 @@
+>> 프로그래밍 언어 <<
+
+- 인터프리터 언어
+- 컴파일러 언어
+
+어셈블리어 
+
+
+
+
+>> 컴퓨터 핵심 요소 <<
+
+    1. 중앙처리장치 (CPU: Central Processing Unit)
+        1) 산술/논리 연산 장치 (ALU: Arithmetic Logic Unit)
+        2) 제어 장치 (CU: Control Unit)
+        3) 레지스터 (Registers)
+
+    2. 주기억장치 (RAM: Random Access Memory)
+
+    3. 보조기억장치 (SSD, HDD)
+
+    4. 입출력장치 (I/O: Input/Output Devices)
+        - 입력 장치: 키보드, 마우스, 스캐너...
+        - 출력 장치: 모니터, 프린터, 스피커...
+
+>> 버스 Bus <<
+; 데이터 연결 통로
+
+>> 명령어 사이클 Instruction Cycle <<
+; 컴퓨터의 기본 동작 원리
+
+    STEP 01. 인출 Fetch
+    STEP 02. 해독 Decode
+    STEP 03. 실행 Execute
+
+>> C 문법 <<
+
+# 문자열
+    - \b
+    - \n
+    - \t
+    - \r
+    - \a
+    - %d, %lf, %.xlf
+
+# 보수
+    1의 보수
+    2의 보수
+
+
+# 구
+
