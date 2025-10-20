@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stdio.h": "c"
+    },
+    "code-runner.executorMap": {
+        "c": "cd \"$dir\" && gcc \"$fileName\" -o \"$fileNameWithoutExt\" -lm && ./\"$fileNameWithoutExt\""
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.saveAllFilesBeforeRun": true
+}
