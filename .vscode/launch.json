@@ -6,7 +6,7 @@
             "name": "C/C++: gcc-11 build and debug active file",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/lecture",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
