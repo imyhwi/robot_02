@@ -157,20 +157,124 @@ int main(void){
 //=================================================================
 // 포인터
 
+// int main(void){
+
+//     int a; double b; char c;
+
+//     // 주소 연산자
+//     printf("int형 변수의 주소: %u\n",&a);
+//     printf("double형 변수의 주소: %u\n",&b);
+//     printf("char형 변수의 주소: %u\n",&c);
+    
+//     printf("int형 변수의 주소: %p\n",&a);
+//     printf("double형 변수의 주소: %p\n",&b);
+//     printf("char형 변수의 주소: %p\n",&c);
+//     return 0;
+
+// }
+
+
+
+
+// int main(void){
+//     int val = 100; 
+//     int *pval;                               // [선언 *]
+
+//     pval = &val;                             // [사용 &] val의 주소 (&val)을 -> pval에 저장 // 포인터는 변수의 시작 주소를 저장
+    
+//     printf("val의 주소      : %p\n", &val);
+//     printf("pval에 저장된 값: %p\n", pval);
+
+//     printf("변경 전 val의 값: %d\n", val);
+//     *pval = 1000;                           // [사용 *]
+//     printf("변경 후 val의 값: %d\n", val);
+
+//     return 0;
+// }
+
+
+// int main(void){
+//     int a = 10, b = 15, total;
+//     double avg;
+
+//     int *pa, *pb;
+//     int *pt = &total;
+//     double *pg = &avg;
+
+//     pa = &a; pb = &b;
+
+//     *pt = *pa + *pb;    // 10 + 15
+//     *pg = *pt / 2.0;    // 25 / 2.0
+
+//     printf("두 정수의 값: %d, %d\n", *pa, *pb);
+//     printf("두 정수의 합: %d\n", *pt);
+//     printf("두 정수의 평균: %.1lf\n", *pg);
+
+//     return 0;
+// }
+
+
+// const를 사용한 포인터
+// int main(void){
+
+//     int a = 10, b = 20;
+//     const int *pa = &a;         // *pa로 사용 불가, 참조만 가능
+
+//     printf("변수 a의 값: %d\n",*pa);
+
+//     pa = &b;
+//     printf("변수 b의 값: %d\n", *pa);
+    
+//     pa = &a;
+//     a = 30;
+//     // *pa = 40;
+//     printf("변수 a의 값: %d\n", *pa);
+
+//     return 0;
+// }
+
+
+// 주소와 포인터의 크기
+// int main(void){
+//     char ch; int in; double db;
+
+//     char *pc = &ch;
+//     int *pi = &in;
+//     double *pd = &db;
+
+//     printf("char형 변수의 주소 크기: %lu\n", sizeof(&ch));
+//     printf("int형 변수의 주소 크기: %lu\n", sizeof(&in));
+//     printf("double형 변수의 주소 크기: %lu\n", sizeof(&db));
+//     printf("\n");
+
+//     printf("char *포인터 주소 크기: %lu\n", sizeof(pc));
+//     printf("int *포인터 주소 크기: %lu\n", sizeof(pi));
+//     printf("double *포인터의 주소 크기: %lu\n", sizeof(pd));
+//     printf("\n");
+
+//     printf("char *포인터가 가리키는 변수의 크기: %lu\n", sizeof(*pc));
+//     printf("int *포인터가 가리키는 변수의 크기: %lu\n", sizeof(*pi));
+//     printf("double *포인터가 가리키는 변수의 크기: %lu\n", sizeof(*pd));
+    
+
+//     return 0;
+// }
+
+
+
+
+
+// 포인터를 이용한 변수 값 변경
+
 int main(void){
 
-    int a; double b; char c;
+    int a = 10;
+    int *pa = &a;
 
-    // 주소 연산자
-    printf("int형 변수의 주소: %p\n",&a);
-    printf("double형 변수의 주소: %p\n",&b);
-    printf("char형 변수의 주소: %p\n",&c);
-    
+    printf("변경 전 a의 값: %d\n", a);
+    *pa = 20;
+    printf("변경 후 a의 값: %d\n", a);
+
     return 0;
-
 }
-
-
-
-
 
