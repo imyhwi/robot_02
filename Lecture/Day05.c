@@ -109,37 +109,35 @@ int main(void){
 
 int main(void){
 
-    int log_size, i, max, min, limit, range;
+    int log_size, i, max, min, limit = 10;
 
-    printf("========요구 사항 입력========\n");
+    printf("========입력 정보========\n");
     printf("주행 로그 개수: "); scanf("%d",&log_size);
 
     int speed[log_size];
     srand(time(NULL));
 
     for (i = 0; i < log_size; i++){
-        limit = rand() % 11 + 1;
-        range = rand() % 21 -10;
 
         // 초기 속도 설정
-        if (i == 0) speed[i] = rand() % 180;
-        // 감속/가속 설정
-        else if (i == 1) {
-            if (speed[i-1] < 10){
-                speed[i] = rand() % (speed[i-1] + limit + 1) - speed[i-1];
-            } else speed[i] = speed[i-1] + range;
+        if (i == 0) speed[i] = rand() % 180; 
+        // 감속/가속 결정
+        else if (i == 1 || i % 10 ==0) {
+            if (speed[i-1] < 10) min = 0; else min = speed[i-1] - limit;
+            max = speed[i-1] + limit;
+            speed[i] = rand() % (max - min +1) + min;
         }
-        else if (i % 10 == 0) speed[i] = speed[i-1] + range;
         // 나머지 8개 로그 설정
         else{
+            if (speed[i-1] < 10) min = 0; else min = speed[i-1] - limit;
+            // 감소 구간
             if (speed[(i/10) * 10] > speed[(i/10)*10 +1]){
-                speed[i] = speed[i-1] - limit;
+                if (speed[i-1] == 0) speed[i] = 0;
+                else speed[i] = rand() % (speed[i] - min + 1) + min;
             }
+            // 증가 구간
             else if (speed[(i/10) * 10] < speed[(i/10)*10 +1]){
-                speed[i] = speed[i-1] + limit;
-            }
-            else if (speed[(i/10) * 10] == speed[(i/10)*10 +1]){
-
+                speed[i] = speed[i-1] + rand() % (limit + 1);
             }
         }
     }
@@ -151,28 +149,46 @@ int main(void){
     }
     printf("\n");
 
+}
 
 
+
+
+
+
+// 배터리 잔량 히스테리시스 경보 시스템
+
+/*
+int main(void){
+    int i, num, is_on = 0;
+
+    printf("데이터 개수: "); scanf("%d", &num);
+    int level[num];
+    for (i = 0; i < num; i ++) {
+        printf("%d. 배터리 잔량 로그 (0%% ~ 100%%): ", i+1); scanf("%d", &level[i]);
+    }
+    printf("\n>>>>>배터리 경보 시스템<<<<<\n\n");
+    for (i = 0; i < num; i ++){
+        if (i == 0) is_on = 0;
+
+        // 충전 중
+        if (level[i] < level[i-1]){
+            if (is_on == 0 && level[i] <=30) is_on = 1;
+        }
+        // 소모 중
+        else if (level[i] > level[i-1]){
+            if(is_on == 1 && level[i]> 35) is_on = 0;
+        }
+        
+        if (is_on == 1) printf("[경고!] ");
+        printf("배터리 잔량: %d%%\n", level[i]);
+    }
 
 
 }
 
 
-/*
-    for (i=1; i< log_size; i++){
-        delta = speed[i] - speed[i-1];
-        if (delta >= 10){
-            printf("급가속이 인식되었습니다! (%.1lf km/h >> %.1lf km/h)\n", speed[i-1],speed[i]);
-            sudden_accel++;
-        }
-        else if (delta <= -10) {
-            printf("급제동이 인식되었습니다! (%.1lf km/h >> %.1lf km/h)\n", speed[i-1],speed[i]);
-            sudden_stop++;
-        }
-    }
-
-    printf("========인식 결과========\n");
-    printf("급가속 횟수: %d번\n", sudden_accel);
-    printf("급제동 횟수: %d번\n", sudden_stop);
-
 */
+
+
+
