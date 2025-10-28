@@ -647,31 +647,26 @@
 
 // }
 
+void fill_col(int )
+void fill_row()
 
 int main(void){
-    int arr[5][6] = {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15},{16,17,18,19,20}};
-    int total_col[5], total_row[4], total, num;
-
-    for (int i = 0; i < 4; i++){
-        for (int j = 0; j < 5; j ++){
+    int arr[5][6], num = 0, *row_sum[4], *col_sum[5];
+    
+    for (int i = 0; i < 4; i ++){
+        for (int j = 0; j < 5; j++){
             num += 1;
-            total_row[i] += num;
-       } 
-       arr[i][5] = total_row[i];
-       total_row = 0; 
-
+            arr[i][j] = num;
+        }
     }
-
-
-
 
     return 0;
 }
 
 
 
-//========================================================
-// CHAPTER 15 응용 포인터
+
+
 
 
 
